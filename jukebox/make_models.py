@@ -28,6 +28,8 @@ def load_checkpoint(path):
         local_path = os.path.join(os.path.expanduser("~/.cache"), gs_path[5:])
         if dist.get_rank() % 8 == 0:
             print("Downloading from gce")
+            print(gs_path)
+            print(local_path)
             if not os.path.exists(os.path.dirname(local_path)):
                 os.makedirs(os.path.dirname(local_path))
             if not os.path.exists(local_path):
